@@ -10,7 +10,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{7935D220-E013-56CA-6E67-E6C7EFB9397C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -62,29 +63,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Game\Commands\Command.cs" />
-    <Compile Include="Assets\Scripts\Game\Commands\ICommand.cs" />
-    <Compile Include="Assets\Scripts\Game\Commands\IMoveable.cs" />
-    <Compile Include="Assets\Scripts\Game\Commands\IMoveableObjectToTarget.cs" />
-    <Compile Include="Assets\Scripts\Game\Commands\IMoveableObjectWithMultipier.cs" />
-    <Compile Include="Assets\Scripts\Game\Commands\IRotateableObject.cs" />
-    <Compile Include="Assets\Scripts\Game\Commands\IScaleableObject.cs" />
-    <Compile Include="Assets\Scripts\Game\Commands\Move.cs" />
-    <Compile Include="Assets\Scripts\Game\Commands\MovementActionToTarget.cs" />
-    <Compile Include="Assets\Scripts\Game\Commands\MovementActionWithMultipier.cs" />
-    <Compile Include="Assets\Scripts\Game\Commands\RotationAction.cs" />
-    <Compile Include="Assets\Scripts\Game\Commands\ScaleAction.cs" />
-    <Compile Include="Assets\Scripts\Game\Signals\SignalBus.cs" />
-    <Compile Include="Assets\Scripts\Game\States\Context.cs" />
-    <Compile Include="Assets\Scripts\Game\States\IState.cs" />
-    <Compile Include="Assets\Scripts\Game\States\MoveableObjectToTargetContext.cs" />
-    <Compile Include="Assets\Scripts\Game\States\MoveableObjectWithMultipierContext.cs" />
-    <Compile Include="Assets\Scripts\Utils\Constant.cs" />
-    <Compile Include="Assets\Scripts\Utils\Enums.cs" />
-    <Compile Include="Assets\Scripts\Utils\Extensions.cs" />
-    <Compile Include="Assets\Scripts\Utils\Factory.cs" />
-    <Compile Include="Assets\Scripts\Utils\IFactory.cs" />
-    <Compile Include="Assets\Scripts\Utils\Util.cs" />
+    <Compile Include="Assets\Scripts\Game\Command\Command.cs" />
+    <Compile Include="Assets\Scripts\Game\Command\ICommand.cs" />
+    <Compile Include="Assets\Scripts\Game\Signal\SignalBus.cs" />
+    <Compile Include="Assets\Scripts\Game\State\Context.cs" />
+    <Compile Include="Assets\Scripts\Game\State\IState.cs" />
+    <Compile Include="Assets\Scripts\Util\Constant.cs" />
+    <Compile Include="Assets\Scripts\Util\Enums.cs" />
+    <Compile Include="Assets\Scripts\Util\Extensions.cs" />
+    <Compile Include="Assets\Scripts\Util\Factory.cs" />
+    <Compile Include="Assets\Scripts\Util\IFactory.cs" />
+    <Compile Include="Assets\Scripts\Util\Util.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -695,7 +684,8 @@
       <HintPath>C:/Users/MrUslu/Desktop/Unity/Projects/BaseScripts/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,4 @@
-﻿namespace Base.Game.States
+﻿namespace Base.Game.State
 {
     public class Context
     {

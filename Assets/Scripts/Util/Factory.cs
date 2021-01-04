@@ -1,6 +1,6 @@
-﻿namespace Base.Utils
+﻿namespace Base.Util
 {
-    using Base.Game.Signals;
+    using Base.Game.Signal;
     using System.Collections.Generic;
     using UnityEngine;
 

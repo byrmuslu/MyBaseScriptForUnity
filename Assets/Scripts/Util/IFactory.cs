@@ -1,4 +1,4 @@
-﻿namespace Base.Utils
+﻿namespace Base.Util
 {
     public interface IFactory<T>
     {

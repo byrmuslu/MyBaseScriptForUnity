@@ -1,4 +1,4 @@
-﻿namespace Base.Game.Signals
+﻿namespace Base.Game.Signal
 {
     using System;
     using System.Collections.Generic;
