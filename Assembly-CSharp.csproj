@@ -71,8 +71,8 @@
     <Compile Include="Assets\Scripts\Util\Constant.cs" />
     <Compile Include="Assets\Scripts\Util\Enums.cs" />
     <Compile Include="Assets\Scripts\Util\Extensions.cs" />
-    <Compile Include="Assets\Scripts\Util\Factory.cs" />
-    <Compile Include="Assets\Scripts\Util\IFactory.cs" />
+    <Compile Include="Assets\Scripts\Game\Factory.cs" />
+    <Compile Include="Assets\Scripts\Game\IFactory.cs" />
     <Compile Include="Assets\Scripts\Util\Util.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
