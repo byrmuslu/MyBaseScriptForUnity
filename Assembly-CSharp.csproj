@@ -65,7 +65,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Game\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Game\Command\ICommand.cs" />
+    <Compile Include="Assets\Scripts\Game\Signal\Signal.cs" />
+    <Compile Include="Assets\Scripts\Game\Signal\SignalAttribute.cs" />
     <Compile Include="Assets\Scripts\Game\Signal\SignalBus.cs" />
+    <Compile Include="Assets\Scripts\Game\Signal\SignalManager.cs" />
     <Compile Include="Assets\Scripts\Game\State\Context.cs" />
     <Compile Include="Assets\Scripts\Game\State\IState.cs" />
     <Compile Include="Assets\Scripts\Util\Constant.cs" />
