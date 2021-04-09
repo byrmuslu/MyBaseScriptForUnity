@@ -1,23 +1,26 @@
-﻿namespace Base.Game.Signal
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+
+namespace Base.Game.Signal
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Reflection;
     public class Signal
     {
-        private string _tag;
-        public string Tag { get => _tag; }
+        private Type _tag;
+        public Type Tag { get => _tag; }
         private object _o;
-        private Dictionary<string, List<MethodInfo>> _methodGroup;
+        public object Object { get => _o; }
+        private Dictionary<Type, List<MethodInfo>> _methodGroup;
+        public Dictionary<Type, List<MethodInfo>> MethodGroup { get => _methodGroup; }
 
-        public Signal(string tag, object o)
+        public Signal(Type tag, object o)
         {
             _tag = tag;
             _o = o;
-            _methodGroup = new Dictionary<string, List<MethodInfo>>();
+            _methodGroup = new Dictionary<Type, List<MethodInfo>>();
         }
 
-        public void AddMethods(string tag, List<MethodInfo> methods)
+        public void AddMethods(Type tag, List<MethodInfo> methods)
         {
             if (!_methodGroup.ContainsKey(tag))
             {
@@ -26,7 +29,7 @@
             _methodGroup[tag].AddRange(methods);
         }
 
-        public void FireSignalMethodGroup(string tag, params object[] prms)
+        public void FireSignalMethodGroup(Type tag, params object[] prms)
         {
 
             if (_methodGroup.ContainsKey(tag))

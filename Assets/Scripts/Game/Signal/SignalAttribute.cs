@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Base.Game.Signal
+﻿namespace Base.Game.Signal
 {
-    [System.AttributeUsage(System.AttributeTargets.Method)]
+    using System;
+    [AttributeUsage(AttributeTargets.Method)]
     public class SignalAttribute : System.Attribute
     {
-        public string Tag { get; set; }
+        public Type Tag { get; set; }
         public Type[] Params { get; set; }
 
-        public SignalAttribute(string tag, params Type[] prms)
+        public SignalAttribute(Type tag, params Type[] prms)
         {
             Tag = tag;
             Params = prms;

@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-
-namespace Base.Game.Signal
+﻿namespace Base.Game.Signal
 {
+    using System.Reflection;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     public class SignalManager
     {
-        private static Dictionary<string, Signal> _signal = new Dictionary<string, Signal>();
-        public static void Register<T>(T type, string tag)
+        private static Dictionary<Type, List<Signal>> _signal = new Dictionary<Type, List<Signal>>();
+        public static void Register<T>(T clz)
         {
-            Dictionary<string, List<MethodInfo>> methodGroup = new Dictionary<string, List<MethodInfo>>();
-            MethodInfo[] customs = type.GetType().GetMethods();
+            Dictionary<Type, List<MethodInfo>> methodGroup = new Dictionary<Type, List<MethodInfo>>();
+            MethodInfo[] customs = clz.GetType().GetMethods();
             foreach (MethodInfo s in customs)
             {
                 SignalAttribute att = (SignalAttribute)s.GetCustomAttribute(typeof(SignalAttribute));
-                if (att == null || att.Tag != tag)
+                if (att == null)
                     continue;
                 if (!methodGroup.ContainsKey(att.Tag))
                 {
@@ -24,24 +24,36 @@ namespace Base.Game.Signal
             }
             if (methodGroup.Count <= 0)
                 return;
-            _signal.Add(tag, new Signal(tag, type));
-            foreach (string t in methodGroup.Keys)
+            foreach (Type tag in methodGroup.Keys)
             {
-                _signal[tag].AddMethods(t, methodGroup[tag]);
+                if (_signal.ContainsKey(tag))
+                {
+                    Signal newSignal = new Signal(tag, clz);
+                    newSignal.AddMethods(tag, methodGroup[tag]);
+                    _signal[tag].Add(newSignal);
+                }
+                else
+                {
+                    Signal newSignal = new Signal(tag, clz);
+                    newSignal.AddMethods(tag, methodGroup[tag]);
+                    _signal.Add(tag, new List<Signal>() { newSignal });
+                }
             }
         }
 
-        public static void UnRegister<T>(T type, string tag)
+        public static void UnRegister<T>(T clz, Type tag)
         {
-            _signal.Remove(tag);
+            if (_signal.ContainsKey(tag))
+            {
+                _signal[tag].ToList().FindAll(s => s.Object == (object)clz).ForEach(s => _signal[tag].Remove(s));
+            }
         }
 
-        public static void Fire(string tag, params object[] prms)
+        public static void Fire(Type tag, params object[] prms)
         {
             if (!_signal.ContainsKey(tag))
                 return;
-            Signal signal = _signal[tag];
-            signal.FireSignalMethodGroup(tag, prms);
+            _signal[tag].ToList().ForEach(s => s.FireSignalMethodGroup(tag, prms));
         }
 
     }
