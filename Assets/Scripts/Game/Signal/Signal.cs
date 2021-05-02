@@ -31,7 +31,6 @@ namespace Base.Game.Signal
 
         public void FireSignalMethodGroup(Type tag, params object[] prms)
         {
-
             if (_methodGroup.ContainsKey(tag))
             {
                 foreach (MethodInfo action in _methodGroup[tag])
@@ -41,7 +40,16 @@ namespace Base.Game.Signal
                     bool isOk = true;
                     for (int i = 0; i < action.GetParameters().Length; i++)
                     {
-                        if (!action.GetParameters()[i].ParameterType.Equals(prms[i].GetType()))
+                        Type type = prms[i].GetType();
+                        if (!type.IsPrimitive)
+                        {
+                            while (type.BaseType != typeof(Base.Game.GameObject.MyObject))
+                            {
+                                type = type.BaseType;
+                            }
+
+                        }
+                        if (!action.GetParameters()[i].ParameterType.Equals(type))
                             isOk = false;
                     }
                     if (isOk)
@@ -49,8 +57,5 @@ namespace Base.Game.Signal
                 }
             }
         }
-
-
-
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Base.Util
+namespace Base.Util
 {
     public static class Constant
     {

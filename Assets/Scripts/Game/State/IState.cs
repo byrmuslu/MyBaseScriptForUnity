@@ -1,7 +1,10 @@
-﻿namespace Base.Game.State
+using System.Collections;
+
+namespace Base.Game.State
 {
-    public interface IState
+    public interface IState<T>
     {
-        void Handle(Context context);
+        void Handle(BaseContext<T> context);
+        IEnumerator GetAction();
     }
 }

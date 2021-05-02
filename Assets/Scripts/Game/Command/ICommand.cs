@@ -1,4 +1,4 @@
-﻿namespace Base.Game.Command
+namespace Base.Game.Command
 {
     public interface ICommand
     {

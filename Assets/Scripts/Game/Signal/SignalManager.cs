@@ -1,9 +1,11 @@
-﻿namespace Base.Game.Signal
+﻿using Base.Game.GameObject;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+
+namespace Base.Game.Signal
 {
-    using System.Reflection;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     public class SignalManager
     {
         private static Dictionary<Type, List<Signal>> _signal = new Dictionary<Type, List<Signal>>();
@@ -44,6 +46,14 @@
         public static void UnRegister<T>(T clz, Type tag)
         {
             if (_signal.ContainsKey(tag))
+            {
+                _signal[tag].ToList().FindAll(s => s.Object == (object)clz).ForEach(s => _signal[tag].Remove(s));
+            }
+        }
+
+        public static void UnRegister<T>(T clz)
+        {
+            foreach (Type tag in _signal.Keys)
             {
                 _signal[tag].ToList().FindAll(s => s.Object == (object)clz).ForEach(s => _signal[tag].Remove(s));
             }
