@@ -1,9 +1,10 @@
-namespace Base.Game.Factory
+namespace Base.Util
 {
-    public interface IFactory<T>
+    using Base.Game.GameObject;
+    public interface IFactory
     {
-        T GetObject();
-        T GetObject(System.Type type);
-        T GetObject(System.Type type, Base.Util.ObjectType objType);
+        PoolableObject GetObject();
+        PoolableObject GetObject(System.Type type);
+        PoolableObject GetObject(System.Type type, ObjectType objType);
     }
 }

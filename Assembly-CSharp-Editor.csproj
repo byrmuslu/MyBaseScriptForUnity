@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{6E9B52EF-8DA8-E9C9-3E39-F22494083841}</ProjectGuid>
+    <ProjectGuid>{3C3CB86F-985B-E500-99C3-6899347D8FD9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -270,7 +270,7 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/BaseBABAProject/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/MyBaseScriptsForHyperCasual/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -627,48 +627,48 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/BaseBABAProject/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/MyBaseScriptsForHyperCasual/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/BaseBABAProject/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/MyBaseScriptsForHyperCasual/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/BaseBABAProject/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/MyBaseScriptsForHyperCasual/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Cinemachine">
-      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/BaseBABAProject/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/MyBaseScriptsForHyperCasual/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/BaseBABAProject/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/MyBaseScriptsForHyperCasual/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/BaseBABAProject/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/MyBaseScriptsForHyperCasual/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/BaseBABAProject/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/MyBaseScriptsForHyperCasual/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/BaseBABAProject/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/MyBaseScriptsForHyperCasual/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/BaseBABAProject/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/MyBaseScriptsForHyperCasual/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/BaseBABAProject/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/MyBaseScriptsForHyperCasual/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/BaseBABAProject/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/MyBaseScriptsForHyperCasual/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/BaseBABAProject/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/MyBaseScriptsForHyperCasual/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/BaseBABAProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/mrusl/Desktop/Unity/Projects/MyBaseScriptsForHyperCasual/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{C7584C4C-6DC7-981D-4030-6FEAC42F1024}</Project>
+      <Project>{8178483E-3F1C-102D-8643-A1A422788BC6}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
   </ItemGroup>

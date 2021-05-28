@@ -1,20 +1,21 @@
-﻿namespace Base.Game.Factory
+﻿namespace Base.Util
 {
     using Base.Game.GameObject;
     using Base.Game.Signal;
-    using Base.Util;
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class Factory<T, T1> : IFactory<T> where T : PoolableObject
+    public class Factory : IFactory
     {
-        private List<T> _pool;
-        private List<T> _prefabs;
+        public static IFactory Instance { get => Constraction.Build(); }
+        public static Builder Constraction { get; private set; } = new Builder();
+        private List<PoolableObject> _pool;
+        private List<PoolableObject> _prefabs;
         private int _totalObject;
         private Factory()
         {
-            _pool = new List<T>();
-            _prefabs = new List<T>();
+            _pool = new List<PoolableObject>();
+            _prefabs = new List<PoolableObject>();
         }
         ~Factory()
         {
@@ -24,29 +25,30 @@
         {
             SignalManager.Register(this);
         }
+
         [Signal(typeof(PoolableObject), typeof(PoolableObject))]
-        public void OnDestroyed(T obj)
+        public void OnDestroyed(PoolableObject obj)
         {
             if (_pool.Contains(obj))
                 return;
             _pool.Add(obj);
         }
 
-        public T GetObject()
+        public PoolableObject GetObject()
         {
             if (_pool.Count > 0)
             {
-                T inPoolObj = _pool[UnityEngine.Random.Range(0, _pool.Count)];
+                PoolableObject inPoolObj = _pool[UnityEngine.Random.Range(0, _pool.Count)];
                 _pool.Remove(inPoolObj);
                 return inPoolObj;
             }
             _totalObject += 1;
-            return MonoBehaviour.Instantiate(_prefabs[UnityEngine.Random.Range(0, _prefabs.Count)].gameObject).GetComponent<T>();
+            return MonoBehaviour.Instantiate(_prefabs[UnityEngine.Random.Range(0, _prefabs.Count)].gameObject).GetComponent<PoolableObject>();
         }
 
-        public T GetObject(System.Type type)
+        public PoolableObject GetObject(System.Type type)
         {
-            T found = _pool.Find(x => x.GetType().Equals(type));
+            PoolableObject found = _pool.Find(x => x.GetType().Equals(type));
             if (_pool.Count > 0 && found)
             {
                 _pool.Remove(found);
@@ -57,17 +59,17 @@
                 found = _prefabs.Find(x => x.GetType().Equals(type));
                 if (found)
                 {
-                    return MonoBehaviour.Instantiate(found.gameObject).GetComponent<T>();
+                    return MonoBehaviour.Instantiate(found.gameObject).GetComponent<PoolableObject>();
                 }
             }
             Debug.LogWarning("Prefab not found please check it in resources file!! Type : " + type);
             return null;
         }
 
-        public T GetObject(System.Type type, ObjectType objType)
+        public PoolableObject GetObject(System.Type type, ObjectType objType)
         {
-            List<T> foundAll = _pool.FindAll(x => x.GetType().Equals(type) && x.Type.Equals(objType));
-            T found = null;
+            List<PoolableObject> foundAll = _pool.FindAll(x => x.GetType().Equals(type) && x.Type.Equals(objType));
+            PoolableObject found = null;
             if (_pool.Count > 0 && foundAll.Count > 0)
             {
                 found = foundAll[Random.Range(0, foundAll.Count)];
@@ -80,7 +82,7 @@
                 if (foundAll.Count > 0)
                 {
                     found = foundAll[Random.Range(0, foundAll.Count)];
-                    return MonoBehaviour.Instantiate(found.gameObject).GetComponent<T>();
+                    return MonoBehaviour.Instantiate(found.gameObject).GetComponent<PoolableObject>();
                 }
             }
             Debug.LogWarning("Prefab not found please check it in resources file!! Type : " + type + " Object Type : " + objType);
@@ -94,14 +96,14 @@
 
         public class Builder
         {
-            private Factory<T, T1> _factory;
+            private Factory _factory;
 
             public Builder()
             {
-                _factory = new Factory<T, T1>();
+                _factory = new Factory();
             }
 
-            public Builder AddPrefab(T prefab)
+            public Builder AddPrefab(PoolableObject prefab)
             {
                 if (!_factory._prefabs.Contains(prefab))
                 {
@@ -112,7 +114,7 @@
 
             public Builder AddPrefab(string prefabPath)
             {
-                T prefab = Resources.Load<GameObject>(prefabPath).GetComponent<T>();
+                PoolableObject prefab = Resources.Load<GameObject>(prefabPath).GetComponent<PoolableObject>();
                 if (!prefab)
                 {
                     Debug.LogWarning(prefabPath + " prefab not found please check it!!");
@@ -120,7 +122,7 @@
                 }
                 if (!_factory._prefabs.Contains(prefab))
                 {
-                    T initialObject = MonoBehaviour.Instantiate(prefab).GetComponent<T>();
+                    PoolableObject initialObject = MonoBehaviour.Instantiate(prefab).GetComponent<PoolableObject>();
                     _factory._totalObject += 1;
                     _factory._pool.Add(initialObject);
                     initialObject.gameObject.SetActive(false);
@@ -134,12 +136,12 @@
                 GameObject[] objs = Resources.LoadAll<GameObject>(basePath);
                 foreach (GameObject obj in objs)
                 {
-                    T prefab = obj.GetComponent<T>();
+                    PoolableObject prefab = obj.GetComponent<PoolableObject>();
                     if (prefab)
                     {
                         if (!_factory._prefabs.Contains(prefab))
                         {
-                            T initialObject = MonoBehaviour.Instantiate(prefab).GetComponent<T>();
+                            PoolableObject initialObject = MonoBehaviour.Instantiate(prefab).GetComponent<PoolableObject>();
                             _factory._pool.Add(initialObject);
                             initialObject.gameObject.SetActive(false);
                             _factory._prefabs.Add(prefab);
@@ -158,7 +160,7 @@
                 GameObject[] objs = Resources.LoadAll<GameObject>(basePath);
                 foreach (GameObject obj in objs)
                 {
-                    T prefab = obj.GetComponent<T>();
+                    PoolableObject prefab = obj.GetComponent<PoolableObject>();
                     if (prefab)
                     {
                         if (!_factory._prefabs.Contains(prefab))
@@ -180,7 +182,7 @@
                 return this;
             }
 
-            public IFactory<T> Build()
+            public IFactory Build()
             {
                 return _factory;
             }
